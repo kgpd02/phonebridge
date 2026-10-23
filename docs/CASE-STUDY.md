@@ -1,7 +1,9 @@
 # PhoneBridge: from a migration problem to a macOS product
 
-**Builder:** [kgpd02 · Product Builder](https://github.com/kgpd02)  
-**Release:** 0.1.0, early access  
+**Builder:** [kgpd02 · Product Builder](https://github.com/kgpd02)
+
+**Release:** 0.1.0, early access
+
 **Implementation:** AI-assisted, using existing open-source Apple device tooling.
 
 ## The problem
