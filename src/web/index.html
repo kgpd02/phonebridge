@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PhoneBridge</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<aside class="sidebar">
+  <div class="brand"><span class="brand-mark">↗</span><div>PhoneBridge<small>Локальный перенос</small></div></div>
+  <div class="nav-label">РАБОЧЕЕ ПРОСТРАНСТВО</div>
+  <nav aria-label="Разделы приложения">
+    <button class="nav active" data-view="devices"><span>▣</span> На iPhone <b id="nav-device-count">0</b></button>
+    <button class="nav" data-view="library"><span>▤</span> Библиотека IPA <b id="nav-library-count">0</b></button>
+    <button class="nav" data-view="apple"><span>◎</span> Учётная запись Apple</button>
+    <button class="nav" data-view="activity"><span>≋</span> Журнал операций</button>
+  </nav>
+  <div class="sidebar-note"><span class="dot"></span> На твоём компьютере<p>Файлы остаются здесь.<br>Загрузка — с серверов Apple.</p></div>
+  <button class="nav about-nav" data-view="about"><span>ⓘ</span> О приложении <small>0.1</small></button>
+</aside>
+<main>
+  <header><div class="breadcrumb">Личный архив <span>/</span> <strong id="current-section">На iPhone</strong></div><span class="local-badge"><i></i> Локальная сессия</span></header>
+  <section class="page-heading"><div><div class="eyebrow">СОХРАНИТЬ. ПЕРЕНЕСТИ. ОТКРЫТЬ.</div><h1>Приложения с тобой.</h1><p>Сохрани доступный IPA и установи его на свой iPhone.</p></div><button class="button primary" id="manual-download">＋ Загрузить по ID</button></section>
+  <div class="summary-grid">
+    <button class="summary" data-view="devices"><span class="tile-icon">▣</span><div><small>ПОДКЛЮЧЕНИЕ</small><strong id="device-summary">iPhone не найден</strong><span id="device-caption">Подключи телефон кабелем</span></div><span class="arrow">↗</span></button>
+    <button class="summary" data-view="apple"><span class="tile-icon">◎</span><div><small>УЧЁТНАЯ ЗАПИСЬ APPLE</small><strong id="account-summary">Вход не проверен</strong><span id="account-caption">Нужна для загрузки IPA</span></div><span class="arrow">↗</span></button>
+    <button class="summary" data-view="library"><span class="tile-icon">▤</span><div><small>БИБЛИОТЕКА</small><strong id="library-summary">0 приложений</strong><span>Установочные файлы на Mac</span></div><span class="arrow">↗</span></button>
+  </div>
+  <div id="job-banner" class="job-banner" role="status" hidden><div><strong id="job-title"></strong><p id="job-message"></p><details id="job-details" hidden><summary>Технические сведения</summary><pre id="job-error"></pre></details></div><button id="cancel-job" class="button small">Отменить</button></div>
+
+  <section class="view" id="view-devices">
+    <div class="section-top"><div><h2>Приложения на iPhone</h2><p>Выбери старый телефон, чтобы получить список приложений.</p></div><button class="button" id="refresh-devices">↻ Найти iPhone</button></div>
+    <div class="toolbar"><label class="select-label" for="source-device">Телефон</label><select id="source-device"><option value="">Нет подключённых устройств</option></select><button class="button" id="read-apps">Получить приложения</button><div class="search"><span>⌕</span><input id="device-filter" aria-label="Поиск на iPhone" placeholder="Найти приложение"></div></div>
+    <div id="device-list" class="table-container"></div>
+    <div class="footnote">① Подключи кабель <span>→</span> ② Разблокируй iPhone <span>→</span> ③ Подтверди «Доверять»</div>
+  </section>
+
+  <section class="view" id="view-library" hidden>
+    <div class="section-top"><div><h2>Библиотека IPA</h2><p>Скачанные и добавленные установочные файлы.</p></div><button class="button" id="import-ipa">＋ Добавить IPA</button></div>
+    <div class="toolbar"><label class="select-label" for="target-device">Установить на</label><select id="target-device"><option value="">Подключи новый iPhone</option></select><button class="button" id="library-refresh">↻ Обновить</button><div class="search"><span>⌕</span><input id="library-filter" aria-label="Поиск в библиотеке" placeholder="Найти в библиотеке"></div></div>
+    <div id="library-list" class="table-container"></div>
+    <div class="footnote library-foot"><span>Для запуска нужен Apple Account, которому принадлежит IPA.</span><button id="show-library" class="text-button">Открыть папку ↗</button></div>
+  </section>
+
+  <section class="view" id="view-apple" hidden>
+    <div class="section-top"><div><h2>Учётная запись Apple</h2><p>Используй аккаунт, с которого приложения были получены раньше.</p></div><button class="button primary" id="login">Войти в Apple</button></div>
+    <div class="account-panel"><div class="account-orb">◎</div><div><h3 id="account-name">Подключи свою учётную запись</h3><p id="account-description">Для загрузки приложений нужен вход и, при запросе Apple, код подтверждения.</p><div class="button-row"><button class="button small" id="check-account">Проверить вход</button><button class="text-button" id="logout">Выйти из ipatool</button></div></div></div>
+    <div class="section-top compact"><div><h3>Приложения твоей учётной записи</h3><p>Удалённое приложение может отсутствовать в поиске. Попробуй его числовой App Store ID.</p></div><button class="button" id="get-purchases">Получить список</button></div>
+    <form class="store-search" id="store-search"><input id="store-term" placeholder="Поиск в App Store" aria-label="Поиск в App Store" maxlength="120" required><button class="button" type="submit">Найти</button></form>
+    <div id="purchase-list" class="table-container"></div>
+    <div class="pagination" id="pagination" hidden><button class="button small" id="prev-page">← Назад</button><span id="page-label"></span><button class="button small" id="next-page">Далее →</button></div>
+  </section>
+
+  <section class="view" id="view-activity" hidden><div class="section-top"><div><h2>Журнал операций</h2><p>Последние 20 операций текущей сессии. Пароли и коды в журнал не записываются.</p></div></div><div id="activity-list"></div></section>
+
+  <section class="view" id="view-about" hidden>
+    <div class="section-top"><div><h2>Простой инструмент. Открытый код.</h2><p>PhoneBridge 0.1 · локальный прототип для macOS</p></div></div>
+    <div class="about-grid"><article><span class="about-number">01</span><h3>Загрузка с Apple</h3><p>Официальный ipatool 2.7.0. Файлы получены из GitHub-релиза. Контрольные суммы проверены.</p></article><article><span class="about-number">02</span><h3>Подключение по кабелю</h3><p>pymobiledevice3 11.43.1. Список приложений и установка выполняются через службы iPhone.</p><button class="button small" id="setup">Подготовить подключение</button><p id="setup-state"></p></article><article><span class="about-number">03</span><h3>Данные входа</h3><p>Вход выполняет ipatool. Он сохраняет данные учётной записи, включая пароль для обновления входа, в системной Связке ключей. Cookies хранятся локально. При недоступности Связки ключей ipatool может запросить пароль отдельного зашифрованного хранилища.</p></article><article><span class="about-number">04</span><h3>Границы первой версии</h3><p>Переносим установочные файлы. Данные приложений, переписка и пароли переносятся отдельно. Доступность удалённого приложения определяет Apple. Установка и запуск зависят от лицензии и совместимости iOS.</p></article></div>
+  </section>
+  <footer><span>PHONEBRIDGE <b>0.1</b></span><span>Твои устройства. Твой архив.</span></footer>
+</main>
+
+<dialog id="download-dialog"><form id="download-form"><div class="dialog-top"><span class="eyebrow">ЗАГРУЗКА С APPLE</span><button type="button" class="close" data-close="download-dialog" aria-label="Закрыть">×</button></div><h2>Добавить приложение</h2><p>Укажи App Store ID или идентификатор приложения. Если ID неизвестен, попробуем найти его в истории твоей учётной записи Apple.</p><label>App Store ID<input id="download-id" inputmode="numeric" placeholder="Например, 123456789" autocomplete="off"></label><label>Или идентификатор приложения<input id="download-bundle" placeholder="com.example.app" autocomplete="off"></label><details><summary>Определённая версия</summary><label>External Version ID<input id="download-version" inputmode="numeric" placeholder="Необязательно" autocomplete="off"></label></details><div class="callout">Загрузим по существующей лицензии. Покупки автоматически не выполняются.</div><button class="button primary wide" type="submit">Скачать IPA</button></form></dialog>
+<dialog id="auth-dialog"><form id="auth-form"><div class="dialog-top"><span class="eyebrow">ВХОД В APPLE</span><button type="button" id="auth-close" class="close" aria-label="Отменить вход">×</button></div><div class="auth-symbol">◎</div><h2 id="auth-label">Учётная запись Apple</h2><p id="auth-hint">Ввод передаётся локальному ipatool. Он выполняет запрос к Apple.</p><input id="auth-value" aria-label="Значение для входа" autocomplete="off" required><details id="code-help" hidden><summary>Код не появляется на iPhone с iOS 26?</summary><p>На доверенном iPhone с той же учётной записью включи авиарежим. Выключи Wi‑Fi. Открой «Настройки → твоё имя → Вход и безопасность». В окне «Данные учётной записи недоступны» нажми «Получить код проверки». Введи код здесь. После этого выключи авиарежим и включи Wi‑Fi. Mac должен сохранить подключение к интернету.</p></details><button class="button primary wide" type="submit">Продолжить</button></form></dialog>
+<dialog id="install-dialog"><div class="dialog-top"><span class="eyebrow">УСТАНОВКА НА IPHONE</span><button type="button" class="close" data-close="install-dialog" aria-label="Закрыть">×</button></div><h2>Установить приложение?</h2><p id="install-description"></p><div class="callout">Если приложение уже установлено, его версия может измениться. Оставь iPhone подключённым и разблокированным.</div><div class="button-row"><button class="button" data-close="install-dialog">Отмена</button><button class="button primary" id="confirm-install">Установить</button></div></dialog>
+<dialog id="import-dialog"><form id="import-form"><div class="dialog-top"><span class="eyebrow">ДОБАВИТЬ IPA</span><button type="button" class="close" data-close="import-dialog" aria-label="Закрыть">×</button></div><h2>Путь к файлу IPA</h2><p>В приложении для Mac открывается выбор файла. Для запуска в браузере укажи полный путь вручную.</p><input id="import-path" aria-label="Полный путь к IPA" placeholder="/…/Application.ipa" required><button class="button primary wide" type="submit">Добавить в библиотеку</button></form></dialog>
+<div id="toast" role="status" hidden></div>
+</body></html>

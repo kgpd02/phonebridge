@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="title desc">
+<title id="title">PhoneBridge — keep your iPhone apps within reach</title><desc id="desc">An open-source macOS app. Connect an iPhone, archive an eligible IPA from Apple, and install it on your device. Built by kgpd02, Product Builder.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102c24"/><stop offset="1" stop-color="#214c3d"/></linearGradient><pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="#d8e9c8" stroke-opacity=".045"/></pattern></defs>
+<rect width="1280" height="520" rx="24" fill="url(#bg)"/><rect width="1280" height="520" rx="24" fill="url(#grid)"/>
+<rect x="62" y="58" width="58" height="58" rx="16" fill="none" stroke="#c9dda3" stroke-width="2"/><path d="M79 99l24-24M82 75h21v21" fill="none" stroke="#d8edb5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="138" y="96" fill="#f2f4e9" font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif" font-weight="650" font-size="29">PhoneBridge</text>
+<text x="64" y="170" fill="#b9c9ac" font-family="Arial,sans-serif" font-size="12" letter-spacing="3">YOUR DEVICES. YOUR LOCAL ARCHIVE.</text>
+<text x="60" y="242" fill="#f5f6ef" font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif" font-size="58" font-weight="650" letter-spacing="-2">Keep your iPhone apps</text>
+<text x="60" y="309" fill="#d5e6ad" font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif" font-size="58" font-weight="650" letter-spacing="-2">within reach.</text>
+<text x="64" y="353" fill="#d6dfd2" font-family="Arial,sans-serif" font-size="19">Archive eligible apps from Apple. Install from your Mac.</text>
+<rect x="64" y="397" width="112" height="34" rx="17" fill="#e6edda"/><text x="84" y="419" fill="#204536" font-family="Arial,sans-serif" font-size="13" font-weight="600">macOS 13+</text>
+<text x="194" y="419" fill="#d5dfcc" font-family="Arial,sans-serif" font-size="14">OPEN SOURCE · EARLY ACCESS</text>
+<path d="M866 128h318M866 362h318" stroke="#8caa7b" stroke-opacity=".28"/>
+<rect x="914" y="157" width="107" height="164" rx="22" fill="#112f26" stroke="#94b180" stroke-width="2"/><rect x="950" y="168" width="35" height="5" rx="3" fill="#5c7d59"/>
+<rect x="935" y="201" width="32" height="32" rx="9" fill="#d5e6ad"/><path d="M944 223l13-13m-11 0h11v11" fill="none" stroke="#264737" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="976" y="201" width="24" height="32" rx="8" fill="#68865d"/><rect x="935" y="245" width="65" height="9" rx="4" fill="#355d43"/><rect x="935" y="264" width="48" height="9" rx="4" fill="#355d43"/>
+<path d="M1039 237h59m-9-9 10 9-10 9" stroke="#d5e6ad" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1120" y="205" width="47" height="63" rx="8" fill="#d5e6ad"/><path d="M1134 223h19m-19 10h19m-19 10h13" stroke="#355b3e" stroke-width="3" stroke-linecap="round"/>
+<text x="920" y="391" fill="#b9c9ac" font-family="Arial,sans-serif" font-size="13">CONNECT → SAVE → INSTALL</text>
+<text x="64" y="481" fill="#9bb08f" font-family="Arial,sans-serif" font-size="13">BUILT BY KGPD02</text><text x="1124" y="481" fill="#b9c9ac" font-family="Arial,sans-serif" font-size="13" text-anchor="end">PRODUCT BUILDER</text>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "ipatool": {
+    "version": "2.7.0",
+    "repository": "https://github.com/majd/ipatool",
+    "commit": "4484b55d366e177ae6c89758c61588712c572fad"
+  },
+  "pymobiledevice3": {
+    "version": "11.43.1",
+    "source": "https://files.pythonhosted.org/packages/0f/76/eb7a68b8114905c65b401ed8aad3d8fef53fb4e4ed36e958c840de4d7d8e/pymobiledevice3-11.43.1.tar.gz",
+    "sha256": "036827353ba33122a04cc23241e21db5314dbece00fedf4290508c6fd4dd0f52"
+  }
+}

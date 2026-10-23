@@ -1,0 +1,30 @@
+{
+  "python": {
+    "version": "3.12.15",
+    "release": "20261021",
+    "repository": "https://github.com/astral-sh/python-build-standalone",
+    "archives": {
+      "arm64": {
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.12.15%2B20261021-aarch64-apple-darwin-install_only_stripped.tar.gz",
+        "sha256": "7b8d00b751db21cea87dc551a8f8165147c5fbc5251d5537d7e5497dde00a219"
+      },
+      "x86_64": {
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.12.15%2B20261021-x86_64-apple-darwin-install_only_stripped.tar.gz",
+        "sha256": "f12e0504397683d6be0745ffd4c39ef45a455cec169adf35c628840d06133773"
+      }
+    }
+  },
+  "ipatool": {
+    "version": "2.7.0",
+    "archives": {
+      "arm64": {
+        "url": "https://github.com/majd/ipatool/releases/download/v2.7.0/ipatool-2.7.0-macos-arm64.tar.gz",
+        "sha256": "5ae100d4520cf4b3f4374239e5925a9ad9a8dc02abc16bae27479e7ae99aca33"
+      },
+      "x86_64": {
+        "url": "https://github.com/majd/ipatool/releases/download/v2.7.0/ipatool-2.7.0-macos-amd64.tar.gz",
+        "sha256": "05f48994d8b3cfefe7ea1172a0ac0b28715888e9df0af38cf3e490d2ed592263"
+      }
+    }
+  }
+}

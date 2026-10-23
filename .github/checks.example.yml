@@ -1,0 +1,20 @@
+name: Checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  backend:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test backend boundaries
+        run: PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -v
+      - name: Check frontend syntax
+        run: node --check src/web/app.js
+      - name: Check Python syntax
+        run: python -m compileall -q src/backend scripts
